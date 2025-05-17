@@ -1,0 +1,17 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    gap: 2px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+header > img{
+    height: 45px;
+}
+header > span{
+    font-weight: 400px;
+    font-size: 22px;
+}
