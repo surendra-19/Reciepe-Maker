@@ -2,33 +2,50 @@ import './Main.css';
 import { useState } from 'react';
 
 function Main() {
-    const [item,setItem] = useState('');
     const [ingredients,setIngredients] = useState([]);
     const ingredientsListItems = ingredients.map((ingredient)=><li key={ingredient}>{ingredient}</li>);
-    function submitHandler(e){
-        e.preventDefault();
-        setIngredients((prev)=>[...prev,item])
-        setItem('')
+    function addIngredient(formData){
+        const newIngredient = formData.get('ingredient')
+        setIngredients((prev)=>[...prev,newIngredient])
     }
 
   return (
     <>
         <main >
-            <form onSubmit={submitHandler} className='add-ingredient-form'>
+            <form action={addIngredient} className='add-ingredient-form'>
                 <input 
                     aria-label='Add ingredient'
                     type='text' 
                     placeholder='e.g. oregano'
                     name='ingredient'
-                    value={item}
-                    onChange={(e)=>setItem(e.target.value)}
+                    required
                 />
                 <button>Add ingredient</button>
             </form>
-            <h2>Ingredients on hand:</h2>
-            <ul>
-                {ingredientsListItems}
-            </ul>
+            <section>
+                {
+                    ingredientsListItems.length > 0 && (
+                        <>
+                            <h2>Ingredients on hand:</h2>
+                            <ul>
+                                {ingredientsListItems}
+                            </ul>
+                        </>
+                    )
+                }
+                {
+                    ingredientsListItems.length > 4 && (
+                        <div className='get-reciepe-container'>
+                            <div>
+                                <h3>Ready for a reciepe?</h3>
+                                <p>Generate a reciepe from the list of ingredients.</p>
+                            </div>
+                            <button>Get a reciepe</button>
+                        </div>
+                    )
+                }
+            </section> 
+            
         </main>
     </>
   )
