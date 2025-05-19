@@ -31,3 +31,24 @@ main{
     content: "+";
     margin-right: 5px;
 }
+.get-reciepe-container{
+    padding: 5px 20px;
+    background-color: #dfdfe0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+}
+.get-reciepe-container button {
+  width: auto; 
+  border-radius: 6px;
+  border: none;
+  background-color: rgb(255, 166, 1);
+  color: white;
+  font-weight: 600;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.get-reciepe-container button:hover{
+    background-color: rgb(230, 150, 1)
+}
