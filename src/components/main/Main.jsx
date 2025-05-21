@@ -4,6 +4,7 @@ import './Main.css';
 import { useState } from 'react';
 import Reciepe from './Reciepe';
 import GenerateReciepe from './GenerateReciepe';
+import {getRecipeFromMistral} from '../../Ai.js'
 
 function Main() {
     const [ingredients,setIngredients] = useState([]);
@@ -13,8 +14,8 @@ function Main() {
         const newIngredient = formData.get('ingredient')
         setIngredients((prev)=>[...prev,newIngredient])
     }
-    function loadReciepe(){
-        setShowReciepe(prev => !prev);
+    async function loadReciepe(){
+        const recipe = getRecipeFromMistral(ingredients)
     }
 
   return (
